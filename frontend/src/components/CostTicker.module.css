@@ -1,0 +1,141 @@
+.ticker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-surface));
+  border: 1px solid var(--neon-green);
+  font-family: var(--font-mono);
+  overflow: hidden;
+}
+
+.ticker::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg, transparent 0 3px,
+    rgba(0,255,133,0.025) 3px 4px
+  );
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 6px rgba(0,255,255,0.6);
+}
+
+.savingsRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.pct {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--neon-green);
+  text-shadow: 0 0 20px rgba(0,255,133,0.7), 0 0 40px rgba(0,255,133,0.3);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.savingsLabel {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.routingLabel {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--neon-cyan);
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.divider {
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(
+    to bottom,
+    transparent, var(--neon-green), transparent
+  );
+  position: relative;
+  z-index: 1;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 11px;
+  position: relative;
+  z-index: 1;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 80px 100px;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.lineLabel {
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  font-size: 10px;
+}
+
+.lineValue {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.lineValueDim {
+  color: var(--text-dim);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  text-decoration: line-through;
+}
+
+.lineValueGreen {
+  color: var(--neon-green);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  text-shadow: 0 0 6px rgba(0,255,133,0.5);
+}
+
+/* mechanical corners */
+.cornerTL, .cornerTR, .cornerBL, .cornerBR {
+  position: absolute;
+  width: 8px; height: 8px;
+  border: 1px solid var(--neon-green);
+}
+.cornerTL { top: 4px;    left: 4px;    border-right: 0; border-bottom: 0; }
+.cornerTR { top: 4px;    right: 4px;   border-left: 0;  border-bottom: 0; }
+.cornerBL { bottom: 4px; left: 4px;    border-right: 0; border-top: 0; }
+.cornerBR { bottom: 4px; right: 4px;   border-left: 0;  border-top: 0; }
+
+@media (max-width: 640px) {
+  .ticker { flex-direction: column; align-items: stretch; gap: 12px; }
+  .divider { width: 100%; height: 1px; }
+}

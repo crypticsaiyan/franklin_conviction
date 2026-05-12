@@ -1,0 +1,101 @@
+.container {
+  position: relative;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-grid);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 60%, color-mix(in srgb, var(--score-color) 8%, transparent), transparent 70%),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,0.018) 3px 4px);
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-grid);
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  position: relative;
+  z-index: 2;
+}
+
+.headerLabel {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.headerToken {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.gaugeWrap {
+  position: relative;
+  z-index: 2;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 420px;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-grid);
+  border-bottom: 2px solid var(--score-color);
+  font-family: var(--font-display);
+}
+
+.bannerMarker {
+  width: 14px;
+  height: 14px;
+  box-shadow: 0 0 10px var(--score-color);
+  animation: blink 1.8s ease-in-out infinite;
+}
+
+.bannerLabel {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--score-color);
+  text-shadow: 0 0 14px color-mix(in srgb, var(--score-color) 60%, transparent);
+}
+
+.escTag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  background: rgba(255, 0, 200, 0.1);
+  border: 1px solid var(--neon-magenta);
+  color: var(--neon-magenta);
+  letter-spacing: 0.2em;
+  margin-left: auto;
+  text-shadow: var(--glow-magenta);
+}
+
+@keyframes blink {
+  50% { opacity: 0.3; }
+}
