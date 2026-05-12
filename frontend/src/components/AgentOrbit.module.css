@@ -1,0 +1,126 @@
+.container {
+  position: relative;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-grid);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg, transparent 0 3px,
+    rgba(255,255,255,0.018) 3px 4px
+  );
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-grid);
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  position: relative;
+  z-index: 2;
+}
+
+.headerLabel {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.headerMeta {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.hubLabel {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  fill: var(--neon-violet);
+  letter-spacing: 0.15em;
+}
+
+.hubSub {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: var(--text-muted);
+  letter-spacing: 0.25em;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 4px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-grid);
+  position: relative;
+  z-index: 2;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--bg-base);
+  border-left: 2px solid var(--c);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  background: var(--c);
+  flex-shrink: 0;
+}
+
+.legendDot[data-status="idle"] {
+  background: var(--text-dim);
+}
+
+.legendDot[data-status="running"] {
+  animation: pulse 1s ease-in-out infinite;
+  box-shadow: 0 0 6px var(--c);
+}
+
+.legendDot[data-status="complete"] {
+  box-shadow: 0 0 8px var(--c);
+}
+
+.legendName {
+  color: var(--text-primary);
+  flex: 1;
+  font-weight: 500;
+}
+
+.legendStatus {
+  color: var(--text-muted);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+@keyframes pulse {
+  50% { opacity: 0.3; transform: scale(0.7); }
+}

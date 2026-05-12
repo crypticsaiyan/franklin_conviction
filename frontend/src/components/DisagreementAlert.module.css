@@ -1,0 +1,104 @@
+.alert {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--neon-amber);
+  padding: 16px 24px;
+  box-shadow: var(--glow-amber), inset 0 1px 0 rgba(255,255,255,0.06);
+  font-family: var(--font-mono);
+}
+
+.alert::before,
+.alert::after {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px;
+  border: 2px solid var(--neon-amber);
+}
+.alert::before { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+.alert::after  { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
+
+.alert.escalated {
+  border-color: var(--neon-magenta);
+  box-shadow: var(--glow-magenta), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.alert.escalated::before,
+.alert.escalated::after {
+  border-color: var(--neon-magenta);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.alertIcon {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--neon-amber);
+  text-shadow: var(--glow-amber);
+  font-weight: 700;
+}
+
+.alert.escalated .alertIcon {
+  color: var(--neon-magenta);
+  text-shadow: var(--glow-magenta);
+}
+
+.alertText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.alertText strong {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--neon-amber);
+  text-transform: uppercase;
+}
+
+.alert.escalated .alertText strong {
+  color: var(--neon-magenta);
+}
+
+.alertText span {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.escalationBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 0, 200, 0.1);
+  border: 1px solid var(--neon-magenta);
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--neon-magenta);
+  white-space: nowrap;
+  text-shadow: var(--glow-magenta);
+  text-transform: uppercase;
+}
+
+.escalatingDot {
+  width: 7px;
+  height: 7px;
+  background: var(--neon-magenta);
+  box-shadow: 0 0 6px var(--neon-magenta);
+  animation: pulseDot 0.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  50% { opacity: 0.3; transform: scale(0.7); }
+}
