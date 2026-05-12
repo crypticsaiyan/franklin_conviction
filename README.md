@@ -2,8 +2,6 @@
 
 Autonomous crypto investment committee built on the Franklin/BlockRun harness. Seven specialized agents debate a token, a conditional arbitration gate fires on disagreement, and a Risk Officer issues a final conviction score with position sizing.
 
-![Desktop demo](franklin-demo-desktop.png)
-
 ---
 
 ## Quick Start
